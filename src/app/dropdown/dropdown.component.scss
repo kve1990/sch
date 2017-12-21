@@ -1,0 +1,162 @@
+@import "../variables";
+
+.dropdown {
+  position: relative;
+  margin: 15px 0;
+}
+
+.dropdown-title {
+  position: relative;
+  background: linear-gradient(to right, $purple, $red);
+  color: white;
+  padding: 8px 25px 8px 15px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  i {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+
+  @at-root .purple & {
+    background: linear-gradient(to right, $purple, $red);
+  }
+
+  @at-root .blue & {
+    background: linear-gradient(to right, $purple, $blue);
+  }
+
+  @at-root .green & {
+    background: linear-gradient(to right, $blue, $green);
+  }
+}
+
+.dropdown-options {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  z-index: 100;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-color: lighten(black, 20%);
+  background-color: white;
+
+  @at-root .purple & {
+    border-color: $purple;
+  }
+
+  @at-root .blue & {
+    border-color: $blue;
+  }
+
+  @at-root .green & {
+    border-color: $green;
+  }
+}
+
+.dropdown-option {
+  padding: 8px 15px;
+  position: relative;
+
+  label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    padding: 8px 30px 8px 15px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    transition: ease, .5s;
+
+    &:hover {
+      background-color: lighten($purple, 50%);
+
+      @at-root .purple & {
+        background-color: lighten($purple, 50%);
+      }
+
+      @at-root .blue & {
+        background-color: lighten($blue, 50%);
+      }
+
+      @at-root .green & {
+        background-color: lighten($green, 50%);
+      }
+    }
+
+    &:first-child {
+      border-top: 1px solid transparent;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid transparent;
+    }
+  }
+
+  i {
+    visibility: hidden;
+  }
+
+  input {
+    visibility: hidden;
+  }
+
+  input:checked + label {
+    background: $purple;
+    color: white;
+
+    @at-root .purple & {
+      background: $purple;
+    }
+
+    @at-root .blue & {
+      background: $blue;
+    }
+
+    @at-root .green & {
+      background: $green;
+    }
+
+    &:first-child {
+      border-top: 1px solid;
+      border-color: $purple;
+
+      @at-root .purple & {
+        border-color: $purple;
+      }
+
+      @at-root .blue & {
+        border-color: $blue;
+      }
+
+      @at-root .green & {
+        border-color: $green;
+      }
+    }
+
+    i {
+      position: absolute;
+      top: 9px;
+      right: 10px;
+      visibility: visible;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+
+  .dropdown-box {
+    width: 32%;
+  }
+}

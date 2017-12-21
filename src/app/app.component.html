@@ -1,0 +1,284 @@
+<div class="page vk" *ngIf="!res">
+  <div class="preloader-wr" *ngIf="!showForm">
+    <div class="preloader">
+      <img class="preloader__road" src="assets/preloader/route.svg" alt="preloader">
+      <img class="preloader__bike" src="assets/preloader/bike_2.svg" alt="preloader">
+      <span class="preloader__road-line preloader__road-line_1"></span>
+      <span class="preloader__road-line preloader__road-line_2"></span>
+      <span class="preloader__road-line preloader__road-line_3"></span>
+      <span class="preloader__road-line preloader__road-line_4"></span>
+      <span class="preloader__road-line preloader__road-line_5"></span>
+      <span class="preloader__road-line preloader__road-line_6"></span>
+      <span class="preloader__road-line preloader__road-line_7"></span>
+      <span class="preloader__road-line preloader__road-line_8"></span>
+      <span class="preloader__road-line preloader__road-line_9"></span>
+      <span class="preloader__road-line preloader__road-line_10"></span>
+      <span class="preloader__road-line preloader__road-line_11"></span>
+      <span class="preloader__road-line preloader__road-line_12"></span>
+      <span class="preloader__road-line preloader__road-line_13"></span>
+      <span class="preloader__road-line preloader__road-line_14"></span>
+      <span class="preloader__road-line preloader__road-line_15"></span>
+      <span class="preloader__road-line preloader__road-line_16"></span>
+      <span class="preloader__road-line preloader__road-line_17"></span>
+      <span class="preloader__road-line preloader__road-line_18"></span>
+      <span class="preloader__road-line preloader__road-line_19"></span>
+      <span class="preloader__road-line preloader__road-line_20"></span>
+      <span class="preloader__road-line preloader__road-line_21"></span>
+      <span class="preloader__road-line preloader__road-line_22"></span>
+      <span class="preloader__road-line preloader__road-line_23"></span>
+      <span class="preloader__road-line preloader__road-line_24"></span>
+    </div>
+  </div>
+
+  <app-search *ngIf="showForm"></app-search>
+  
+</div>
+
+<div [class]="'container ' + (theme ? theme : 'purple') + (isVk ? ' vk' : '')" *ngIf="res" #container [class.modal-open]="classInfo">
+  <div class="select-date-wrap">
+    <button class="select-date-button" (click)="getItems()">Сегодня</button>
+    <div class="select-date" *ngIf="res">
+      <span class="left-arrow" (click)="changeDate(res.startDate, -1)">
+		<span class="left-arrow__top"></span>
+      <span class="left-arrow__bottom"></span>
+      </span>
+      <span class="select-date-start">{{res.startDate}} - {{res.endDate}}</span>
+      <span class="right-arrow" (click)="changeDate(res.endDate)">
+		<span class="right-arrow__top"></span>
+      <span class="right-arrow__bottom"></span>
+      </span>
+    </div>
+  </div>
+  <div class="wrapper">
+
+    <div class="page" *ngIf="isLoading">
+      <div class="preloader-wr">
+        <div class="preloader">
+          <img class="preloader__road" src="assets/preloader/route.svg" alt="preloader">
+          <img class="preloader__bike" src="assets/preloader/bike_2.svg" alt="preloader">
+          <span class="preloader__road-line preloader__road-line_1"></span>
+          <span class="preloader__road-line preloader__road-line_2"></span>
+          <span class="preloader__road-line preloader__road-line_3"></span>
+          <span class="preloader__road-line preloader__road-line_4"></span>
+          <span class="preloader__road-line preloader__road-line_5"></span>
+          <span class="preloader__road-line preloader__road-line_6"></span>
+          <span class="preloader__road-line preloader__road-line_7"></span>
+          <span class="preloader__road-line preloader__road-line_8"></span>
+          <span class="preloader__road-line preloader__road-line_9"></span>
+          <span class="preloader__road-line preloader__road-line_10"></span>
+          <span class="preloader__road-line preloader__road-line_11"></span>
+          <span class="preloader__road-line preloader__road-line_12"></span>
+          <span class="preloader__road-line preloader__road-line_13"></span>
+          <span class="preloader__road-line preloader__road-line_14"></span>
+          <span class="preloader__road-line preloader__road-line_15"></span>
+          <span class="preloader__road-line preloader__road-line_16"></span>
+          <span class="preloader__road-line preloader__road-line_17"></span>
+          <span class="preloader__road-line preloader__road-line_18"></span>
+          <span class="preloader__road-line preloader__road-line_19"></span>
+          <span class="preloader__road-line preloader__road-line_20"></span>
+          <span class="preloader__road-line preloader__road-line_21"></span>
+          <span class="preloader__road-line preloader__road-line_22"></span>
+          <span class="preloader__road-line preloader__road-line_23"></span>
+          <span class="preloader__road-line preloader__road-line_24"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown-wrap">
+      <app-dropdown class="dropdown-box" [class.half]="room" [inputNames]="courses" [alias]="'Направления'" (namesUpdated)="handleCourses($event)">
+      </app-dropdown>
+      <app-dropdown class="dropdown-box" [class.half]="room" [inputNames]="coaches" [alias]="'Тренеры'" (namesUpdated)="handleCoaches($event)">
+      </app-dropdown>
+      <app-dropdown class="dropdown-box" *ngIf="!room" [inputNames]="rooms" [alias]="'Залы'" (namesUpdated)="handleRooms($event)">
+      </app-dropdown>
+    </div>
+    <div class="table-scroll-wrap">
+      <table class="table">
+        <thead>
+          <tr>
+            <td class="time-cell"></td>
+            <td *ngFor="let day of timetable.hours[0].days; let d=index" (click)="changeCurrentDay(d)" [class.active]="day.dateString === currentDay">
+              <div class="headItem">
+                <div class="marker">
+                  {{day.day.getDate()}}
+                </div>
+                <div class="title-cell">
+                  {{ days[d] }}
+                </div>
+              </div>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Ночное время -->
+          <tr>
+            <td class="time-cell">00 - 06</td>
+            <td class="day-cell">
+
+            </td>
+            <td class="day-cell"
+                *ngFor="let day of timetable.hours[0].days; let d=index"
+                [class.view]="day.dateString === currentDay"
+                [attr.colspan]="(day.dateString === currentDay && isMobile) ? '7' : ''">
+              <ng-container *ngFor="let item of nightClasses | filterSchedule:checkedCourses:checkedCoaches:checkedRooms">
+                <class-cell *ngIf="checkDayForClass(item, d)" (click)="openModal(item, d)"
+                  [class]="item">
+                </class-cell>
+              </ng-container>
+            </td>
+          </tr>
+
+          <!-- Дневное время -->
+          <ng-container *ngFor="let hour of timetable.hours; let d=index">
+            <tr *ngIf="hour.hour * 1 > 6">
+              <td class="time-cell">{{ hour.hour }}</td>
+              <ng-container *ngFor="let day of hour.days; let i=index">
+                <td class="day-cell" [class.view]="day.dateString === currentDay" [attr.colspan]="(day.dateString === currentDay && isMobile) ? '7' : ''">
+                  <class-cell *ngFor="let item of day.items | filterSchedule:checkedCourses:checkedCoaches:checkedRooms" (click)="openModal(item, i)"
+                    [class]="item">
+                  </class-cell>
+                </td>
+              </ng-container>
+            </tr>
+          </ng-container>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div id="modal-info" class="modal" *ngIf="classInfo" (click)="closeModal($event)">
+  <div class="modal-item" [@fadeIn]="'in'">
+    <div class="close-button">
+      <span class="cross" (click)="closeModal($event, true)">
+				<span class="cross__left"></span>
+      <span class="cross__right"></span>
+      </span>
+    </div>
+
+    <div class="modal-content" *ngIf="classInfo.course">
+      <h3 class="modal-title">{{classInfo.course.name}}</h3>
+
+      <!-- Дата и Время -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-3">
+          <div class="modal-name">Дата</div>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="modal-value">{{classInfo.startDate}}, {{classInfo.day}}</div>
+          <!-- день недели -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-3">
+          <div class="modal-name">Время</div>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="modal-value">{{classInfo.startTime}}, {{classInfo.duration}}мин</div>
+        </div>
+      </div>
+      <div class="row" *ngIf="classInfo.isNewGroup">
+        <div class="col-xs-12 col-sm-3">
+          <div class="modal-name"></div>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="modal-value">Новый набор</div>
+        </div>
+      </div>
+      <!-- Дата и Время -->
+
+      <!-- О занятии -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-3">
+          <div class="modal-name">Зал</div>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="modal-value">
+            <img *ngIf="classInfo && classInfo.room && classInfo.room.primaryImageUrl" [src]="classInfo.room.primaryImageUrl" alt="зал для занятия">
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="classInfo.room">
+        <div class="col-xs-12 col-sm-3">
+          <div class="modal-name">Название зала</div>
+        </div>
+        <div class="col-xs-12 col-sm-9" *ngIf="classInfo.room.name">
+          <div class="modal-value">{{classInfo.room.name}}</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-3">
+          <div class="modal-name">О занятии</div>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="modal-value" [innerHtml]="classInfo.course.description"></div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="classInfo.level">
+        <div class="col-xs-12 col-sm-3">
+          <div class="modal-name">Уровень подготовки</div>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="modal-value">{{classInfo.level|level2string}}</div>
+        </div>
+      </div>
+      <div class="row" *ngIf="classInfo.comment">
+        <div class="col-xs-12 col-sm-3">
+          <div class="modal-name">Комментарий к занятию</div>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="modal-value">{{classInfo.comment}}</div>
+        </div>
+      </div>
+      <!-- О занятии -->
+
+      <!-- Тренер -->
+      <ng-container *ngIf="classInfo.coach">
+        <div class="row">
+          <div class="col-xs-12 col-sm-3">
+            <div class="modal-name">Тренер</div>
+          </div>
+          <div class="col-xs-12 col-sm-9">
+            <div class="modal-value">
+              <img *ngIf="classInfo && classInfo.coach && classInfo.coach.primaryImageUrl" [src]="classInfo.coach.primaryImageUrl" alt="тренер">
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="classInfo.coach">
+          <div class="col-xs-12 col-sm-3">
+            <div class="modal-name"></div>
+          </div>
+          <div class="col-xs-12 col-sm-9">
+            <div class="modal-value">{{classInfo.coach.name}}</div>
+          </div>
+        </div>
+        <div class="row" *ngIf="classInfo.coach.position">
+          <div class="col-xs-12 col-sm-3">
+            <div class="modal-name"></div>
+          </div>
+          <div class="col-xs-12 col-sm-9">
+            <div class="modal-value">{{classInfo.coach.position}}</div>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="classInfo && classInfo.coach && classInfo.coach.quote">
+          <div class="col-xs-12 col-sm-3">
+            <div class="modal-name"></div>
+          </div>
+          <div class="col-xs-12 col-sm-9">
+            <div class="modal-value">
+              <span class="modal-value__quote">&nbsp;&nbsp;&nbsp;</span>{{classInfo.coach.quote}}<span class="modal-value__quote">&nbsp;&nbsp;&nbsp;</span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <!-- Тренер -->
+    </div>
+  </div>
+</div>

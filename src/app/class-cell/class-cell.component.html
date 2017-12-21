@@ -1,0 +1,16 @@
+<div class="cell" [@fadeIn]="'in'">
+	<div class="item" [style.background]="class.course ? class.course.color : 'silver'">
+		<div class="content">
+			<!-- <div class="badge" [style.color]="class.course ? class.course.color : 'silver'">
+	  		<span class="letter">Ч</span>
+	  		<span class="help">Черновик</span>
+	  	</div> -->
+			<div class="bk"></div>
+			<div class="time">{{class.startTime}}</div>
+			<div class="title">{{class.course?.name}}</div>
+			<div class="area">{{class.room?.name}}</div>
+			<div class="trainer">{{class.coach?.name}}</div>
+			<div class="duration">{{class.duration}} минут</div>
+		</div>
+	</div>
+</div>

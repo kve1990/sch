@@ -1,0 +1,129 @@
+@import "../variables";
+
+.search{
+  padding: 30px;
+  &-form{
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 480px;
+  }
+  &-input{
+    outline: none;
+    padding: 12px 16px;
+    border-width: 2px;
+    border-color: #aaaab6;
+    border-style: solid;
+    border-radius: 10px;
+    height: 48px;
+    min-width: 100%;
+    font-size: 16px;
+    background-color: white;
+    color: #61616d;
+  }
+  &-autocomplete{
+    margin: 0;
+    top: 40px;
+    position: absolute;
+    padding: 10px 0 15px 0;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+    border: 2px solid #aaaab6;
+    border-top: none;
+    list-style-type: none;
+
+    &-item{
+      padding: 5px 15px;
+      color: #61616d;
+      cursor: pointer;
+
+      &:nth-child(odd){
+        background-color: rgba(0, 170, 231, 0.05);;
+      }
+    }
+  }
+  &-title{
+    text-align: center;
+    color: #8e75c0;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
+  }
+  &-result{
+    margin: 0 auto;
+    margin-top: 20px;
+    list-style-type: none;
+    background: transparent;
+    padding: 0;
+    color: #656571;
+    transition: all ease-out .3s;
+    max-width: 600px;
+
+    &-item{
+      cursor: pointer;
+      padding: 10px 24px;
+      transition: all ease-out .2s;
+      background: #fff;
+      border-bottom: 1px solid silver;
+      &:hover{
+        background-color: #f9f7f8;
+      }
+    }
+  }
+  &-select{
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background: #00aae7;
+    border-color: #fff;
+    outline: none;
+    color: white;
+    margin: 0 auto;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 480px;
+    transition: all ease-out .3s;
+    border-radius: 20px;
+
+    &:hover{
+      background: darken(#00aae7, 8%);
+    }
+  }
+}
+
+.club{
+  max-width: 480px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 1px 1px 0 0 rgba(0,0,0,.15);
+  cursor: pointer;
+
+  &-img{
+    min-height: 260px;
+    overflow: hidden;
+    background-color: $lightGray;
+    margin-bottom: 12px;
+  }
+
+  &-name{
+    font-size: 1.1em;
+    font-weight: bold;
+    color: $darkGray;
+    margin-bottom: 12px;
+  }
+
+  &-adress{
+    color: $gray;
+    margin-bottom: 12px;
+  }
+
+  &-description{
+    color: $gray;
+  }
+}

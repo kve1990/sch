@@ -1,0 +1,35 @@
+<div class="search">
+  <form class="search-form">
+    <input class="search-input" #searchingClub
+           [formControl]="searchTerm"
+           autocomplete="off"
+           placeholder="Поиск клуба">
+
+    <!--start Подсказки для автокомплита -->
+    <ul class="search-autocomplete" *ngIf="searchedClubs && searchedClubs.length" appClickOutside
+        (clickOutside)="searchedClubs = []">
+      <ng-container *ngFor="let club of searchedClubs">
+        <li class="search-autocomplete-item" *ngIf="club && club.name" (click)="searchClubs(club)">
+          {{club.name}}
+        </li>
+      </ng-container>
+    </ul>
+    <!--end Подсказки для автокомплита -->
+  </form>
+
+  <!--start Результаты поиска -->
+  <ul class="search-result" *ngIf="clubs && clubs.length">
+    <h2 class="search-title">Результаты поиска</h2>
+    <li class="search-result-item" *ngFor="let club of clubs" (click)="choseClub(club)">{{club.name}}</li>
+  </ul>
+  <!--end Результаты поиска -->
+  <div class="club" *ngIf="selectedClub && selectedClub.name" (click)="choseClub(selectedClub)">
+    <div class="club-name">{{selectedClub.name}}</div>
+    <div class="club-adress" *ngIf="selectedClub.address">{{selectedClub.address}}</div>
+    <div class="club-img" *ngIf="selectedClub.primaryImageUrl">
+      <img [src]="selectedClub.primaryImageUrl" alt="">
+    </div>
+    <div class="club-description" *ngIf="selectedClub.description">{{selectedClub.description}}</div>
+  </div>
+  <button class="search-select" *ngIf="selectedClub && selectedClub.name" (click)="choseClub(selectedClub)">Посмотреть расписание</button>
+</div>

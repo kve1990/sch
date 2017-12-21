@@ -1,0 +1,885 @@
+@import "./variables";
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .6);
+  overflow-y: auto;
+  z-index: 1000;
+
+  .close-button {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    cursor: pointer;
+    outline: none;
+    background: none;
+    border: none;
+  }
+}
+
+.vk{
+  height: 600px!important;
+  overflow-y: auto;
+}
+
+*::-webkit-scrollbar {
+  -webkit-appearance: none;
+  background-color: #F1F1F1;
+}
+
+*::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+*::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #d2d2d2;
+  border: 2px solid #F1F1F1;
+  border-radius: 8px;
+}
+
+.modal-item {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 15px;
+  background: linear-gradient(to right, $purple, $red);
+  color: white;
+  transition: ease, .5s;
+
+  @at-root .purple & {
+    background: linear-gradient(to right, $purple, $red);
+  }
+
+  @at-root .blue & {
+    background: linear-gradient(to right, $purple, $blue);
+  }
+
+  @at-root .green & {
+    background: linear-gradient(to right, $blue, $green);
+  }
+}
+
+.select-date-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 0 0;
+}
+
+.select-date {
+  position: relative;
+  top: 1px;
+}
+
+.select-date-button {
+  background: transparent;
+  border: 2px solid;
+  border-color: $purple;
+  padding: 8px 15px;
+  outline: none;
+  cursor: pointer;
+  color: $purple;
+  font-weight: bold;
+  transition: ease .5s;
+
+  @at-root .purple & {
+    border-color: $purple;
+    color: $purple;
+  }
+
+  @at-root .blue & {
+    border-color: $blue;
+    color: $blue;
+  }
+
+  @at-root .green & {
+    border-color: $green;
+    color: $green;
+  }
+
+  &:hover {
+    background: rgba(95, 73, 143, 0.1);
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    background: $purple;
+    color: white;
+    box-shadow: none;
+
+    @at-root .purple & {
+      background: $purple;
+    }
+
+    @at-root .blue & {
+      background: $blue;
+    }
+
+    @at-root .green & {
+      background: $green;
+    }
+  }
+}
+
+.select-date-start {
+  font-size: 11px;
+  color: $purple;
+
+  @at-root .purple & {
+    color: $purple;
+  }
+
+  @at-root .blue & {
+    color: $blue;
+  }
+
+  @at-root .green & {
+    color: $green;
+  }
+}
+
+.wrapper {
+  position: relative;
+}
+
+.table-scroll-wrap {
+  width: 100%;
+  overflow: auto;
+}
+
+.table {
+  table-layout: fixed;
+  transition: ease, 0.5s;
+  background: white;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+thead {
+  color: #ababbb;
+}
+
+tbody {
+  td {
+    padding: 4px;
+    min-height: 40px;
+  }
+}
+
+td {
+  width: 100%;
+  padding: 0;
+  color: #ababbb;
+  border: solid 2px #f9f8f8;
+  vertical-align: top;
+
+  &:first-child {
+    vertical-align: top;
+    text-align: center;
+    padding: 10px;
+    width: 90px;
+  }
+}
+
+.headItem {
+  padding: 15px 5px 15px 5px;
+  overflow: hidden;
+
+  .title {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 15px;
+  }
+
+  .marker {
+    background: #f9f7f8;
+    padding: 4px 14px;
+    border-radius: 1000px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    display: inline-block;
+    position: relative;
+    left: -7px;
+    color: lighten($purple, 20%);
+
+    @at-root .purple & {
+      color: lighten($purple, 20%);
+    }
+
+    @at-root .blue & {
+      color: lighten($blue, 20%);
+    }
+
+    @at-root .green & {
+      color: lighten($green, 20%);
+    }
+  }
+}
+
+.left-arrow {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: ease, .5s;
+
+  &__top {
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    width: 8px;
+    height: 2px;
+    background-color: $purple;
+    transform: rotate(-50deg);
+
+    @at-root .purple & {
+      background-color: $purple;
+    }
+
+    @at-root .blue & {
+      background-color: $blue;
+    }
+
+    @at-root .green & {
+      background-color: $green;
+    }
+  }
+
+  &__bottom {
+    position: absolute;
+    bottom: 7px;
+    left: 4px;
+    width: 8px;
+    height: 2px;
+    transform: rotate(50deg);
+    background-color: $purple;
+
+    @at-root .purple & {
+      background-color: $purple;
+    }
+
+    @at-root .blue & {
+      background-color: $blue;
+    }
+
+    @at-root .green & {
+      background-color: $green;
+    }
+  }
+
+  &:hover {
+    .left-arrow__top,
+    .left-arrow__bottom {
+      background-color: $purple;
+
+      @at-root .purple & {
+        background-color: $purple;
+      }
+
+      @at-root .blue & {
+        background-color: $blue;
+      }
+
+      @at-root .green & {
+        background-color: $green;
+      }
+    }
+  }
+}
+
+.right-arrow {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+
+  &__top {
+    position: absolute;
+    bottom: 11px;
+    left: 5px;
+    width: 8px;
+    height: 2px;
+    transform: rotate(-50deg);
+    background-color: $purple;
+
+    @at-root .purple & {
+      background-color: $purple;
+    }
+
+    @at-root .blue & {
+      background-color: $blue;
+    }
+
+    @at-root .green & {
+      background-color: $green;
+    }
+  }
+
+  &__bottom {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    width: 8px;
+    height: 2px;
+    transform: rotate(50deg);
+    background-color: $purple;
+
+    @at-root .purple & {
+      background-color: $purple;
+    }
+
+    @at-root .blue & {
+      background-color: $blue;
+    }
+
+    @at-root .green & {
+      background-color: $green;
+    }
+  }
+
+  &:hover {
+    .right-arrow__top,
+    .right-arrow__bottom {
+      background-color: $purple;
+
+      @at-root .purple & {
+        background-color: $purple;
+      }
+
+      @at-root .blue & {
+        background-color: $blue;
+      }
+
+      @at-root .green & {
+        background-color: $green;
+      }
+    }
+  }
+}
+
+.time-cell {
+  display: none !important;
+}
+
+.title-cell {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 5px;
+}
+
+.day-cell {
+  display: none;
+}
+
+.day-cell.view {
+  display: table-cell;
+}
+
+.active {
+  transition: ease, .5s;
+  background-color: rgba(95, 73, 143, 0.5);
+  color: white;
+}
+
+.cross {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+
+  &__left {
+    position: absolute;
+    top: 3px;
+    left: -3px;
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: white;
+    transform: translateY(6px) translateX(0) rotate(45deg);
+  }
+
+  &__right {
+    position: absolute;
+    top: 15px;
+    left: -3px;
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: white;
+    transform: translateY(-6px) translateX(0) rotate(-45deg);
+  }
+}
+
+.row {
+  margin: 0 -15px 12px -15px;
+  clear: both;
+  overflow: hidden;
+}
+
+.col-xs-12 {
+  padding: 0 15px;
+}
+
+.modal-name {
+  padding-bottom: 5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-family: $FComfortaaLight;
+}
+
+.modal-value {
+  color: white;
+  font-size: 14px;
+
+  &__quote {
+    display: inline-block;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      display: block;
+      font-size: 22px;
+      line-height: 0.55;
+    }
+
+    &:first-child {
+      &:before {
+        left: 0;
+        content: "«";
+      }
+    }
+
+    &:last-child {
+      &:before {
+        right: 0;
+        content: "»";
+      }
+    }
+  }
+
+  p {
+    margin: 0 0 15px 0;
+  }
+}
+
+.modal-content {
+  padding: 0 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.modal-title {
+  font-weight: 100;
+  font-size: 22px;
+}
+
+@media (min-width: 480px) {
+  .modal-item {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 50px auto;
+    padding: 20px 30px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 2px 2px 1px 0 rgba(0, 0, 0, .15);
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-item {
+    left: calc(50% - 320px);
+    max-width: 640px;
+    background: #fff;
+    padding: 20px 50px;
+    color: lighten($purple, 20%);
+
+    @at-root .purple ~ .modal & {
+      color: lighten($purple, 20%);
+    }
+
+    @at-root .blue ~ .modal & {
+      color: lighten($blue, 20%);
+    }
+
+    @at-root .green ~ .modal & {
+      color: lighten($green, 20%);
+    }
+  }
+
+  .cross {
+    transition: ease, .5s;
+
+    &__left,
+    &__right {
+      background: lighten($purple, 20%);
+
+      @at-root .purple ~ .modal & {
+        background: lighten($purple, 20%);
+      }
+
+      @at-root .blue ~ .modal & {
+        background: lighten($blue, 20%);
+      }
+
+      @at-root .green ~ .modal & {
+        background: lighten($green, 20%);
+      }
+    }
+
+    &:hover {
+      transform: rotate(270deg);
+    }
+  }
+
+  .select-date-start {
+    position: relative;
+    top: 1px;
+    font-size: 16px;
+  }
+
+  .left-arrow {
+    width: 28px;
+    height: 28px;
+
+    &__top {
+      top: 7px;
+      left: 5px;
+      width: 12px;
+    }
+
+    &__bottom {
+      bottom: 11px;
+      left: 5px;
+      width: 12px;
+    }
+  }
+
+  .right-arrow {
+    &__top {
+      bottom: 11px;
+      left: 7px;
+      width: 12px;
+    }
+
+    &__bottom {
+      top: 7px;
+      left: 7px;
+      width: 12px;
+    }
+  }
+
+  .dropdown-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dropdown-box {
+    width: 32%;
+
+    &.half {
+      width: 49%;
+    }
+  }
+
+  .day-cell {
+    display: table-cell;
+  }
+
+  .active {
+    transition: ease, .5s;
+    background-color: white;
+    color: #ababbb;
+  }
+
+  .col-sm-3 {
+    width: 25%;
+    float: left;
+  }
+
+  .col-sm-9 {
+    width: 75%;
+    float: left;
+  }
+
+  .modal-name {
+    color: #b0bec5;
+  }
+
+  .modal-value {
+    color: #607d8b;
+  }
+
+  .row {
+    margin: 0 -15px 26px -15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .time-cell {
+    display: table-cell !important;
+  }
+}
+
+
+.page {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  transition: ease, .5s;
+  background: linear-gradient(to right, $purple, $red);
+
+  @at-root .purple & {
+    background: linear-gradient(to right, $purple, $red);
+  }
+
+  @at-root .blue & {
+    background: linear-gradient(to right, $purple, $blue);
+  }
+
+  @at-root .green & {
+    background: linear-gradient(to right, $blue, $green);
+  }
+}
+
+.preloader-wr {
+  max-width: 80px;
+  margin: 0 auto;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-70%) translateY(-70%);
+  pointer-events: none;
+}
+
+$speed: 0.7;
+
+.preloader {
+  position: relative;
+  width: 116px;
+  height: 116px;
+
+  &__road {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    width: 80px;
+    opacity: 0.2;
+  }
+
+  &__bike {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 117px;
+    animation-name: spin;
+    animation-duration: 6 * $speed+s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.67, 0.45, 0.29, 0.51);
+    opacity: 0.7;
+  }
+
+  &__road-line {
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.6) 100%);
+    animation: pulse 6 * $speed+s infinite;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  @for $i from 1 through 24 {
+    .#{preloader__road-line_}#{$i} {
+      transform: rotate(($i - 1)*45+deg);
+      animation-name: pulse1;
+    }
+  }
+
+  @for $i from 1 through 8 {
+    .#{preloader__road-line_}#{$i} {
+      animation-delay: (0.1 + (($i - 2) / 8) * 2.2) * $speed + s;
+      animation-name: pulse1;
+    }
+  }
+
+  @for $i from 9 through 18 {
+    .#{preloader__road-line_}#{$i} {
+      animation-delay: (2.34 + (($i - 10) / 8) * 1.2) * $speed + s;
+      animation-name: pulse2;
+    }
+  }
+
+  @for $i from 19 through 23 {
+    .#{preloader__road-line_}#{$i} {
+      animation-delay: (3.7 + ($i - 18) / 8 * 1.9) * $speed + s;
+      animation-name: pulse3;
+    }
+  }
+
+  .#{preloader__road-line_}24 {
+    animation-delay: (3.7 + (24 - 18) / 8 * 1.9) * $speed + s;
+    animation-name: pulse4;
+  }
+
+  &__road-line_1,
+  &__road-line_9,
+  &__road-line_17 {
+    top: 28px;
+    left: 50%;
+    margin-left: -5px;
+  }
+
+  &__road-line_2,
+  &__road-line_10,
+  &__road-line_18 {
+    top: 36px;
+    left: 63%;
+  }
+
+  &__road-line_3,
+  &__road-line_11,
+  &__road-line_19 {
+    top: 57px;
+    left: 71%;
+  }
+
+  &__road-line_4,
+  &__road-line_12,
+  &__road-line_20 {
+    top: 79px;
+    left: 63%;
+  }
+
+  &__road-line_5,
+  &__road-line_13,
+  &__road-line_21 {
+    top: 86px;
+    left: 50%;
+    margin-left: -5px;
+  }
+
+  &__road-line_6,
+  &__road-line_14,
+  &__road-line_22 {
+    top: 78px;
+    left: 28%;
+  }
+
+  &__road-line_7,
+  &__road-line_15,
+  &__road-line_23 {
+    top: 57px;
+    left: 21%;
+  }
+
+  &__road-line_8,
+  &__road-line_16,
+  &__road-line_24 {
+    top: 36px;
+    left: 28%;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(1080deg);
+  }
+}
+
+@keyframes pulse1 {
+  0% {
+    opacity: 0;
+  }
+
+  7% {
+    opacity: 0.7;
+  }
+
+  24% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse2 {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0.7;
+  }
+
+  8% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse3 {
+  0% {
+    opacity: 0;
+  }
+
+  7% {
+    opacity: 0.7;
+  }
+
+  18% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse4 {
+  0% {
+    opacity: 0;
+  }
+
+  14% {
+    opacity: 0.7;
+  }
+
+  27% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

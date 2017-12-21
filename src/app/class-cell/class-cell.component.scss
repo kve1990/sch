@@ -1,0 +1,87 @@
+.cell{
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  transition: all ease-in-out 1s;
+}
+
+.item{
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  text-align: left;
+  color: white;
+  padding: 4px 5px;
+  cursor: pointer;
+  position: relative;
+  line-height: 1.4;
+  background: rgb(0, 188, 213);
+
+  &:hover:after{
+    opacity: 1;
+  }
+
+  &:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0, .08);
+    opacity: 0;
+    transition: all ease-in-out .2s;
+  }
+}
+.content{
+  position: relative;
+  z-index: 100;
+  font-size: 14px;
+}
+
+.badge{
+  left: 4px;
+  right: 4px;
+  background: white;
+  width: 20px;
+  height: 20px;
+  top: 4px;
+  text-transform: uppercase;
+  border-radius: 50%;
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  position: static;
+  display: inline-block;
+  margin-bottom: 4px;
+  color: rgb(0, 188, 213);
+}
+.letter{
+  &:hover + .help{
+    opacity: 1;
+  }
+}
+.help{
+  background: white;
+  border-radius: 5px;
+  padding: 8px;
+  pointer-events: none;
+  opacity: 0;
+  display: inline-block;
+  font-weight: normal;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  text-transform: none;
+  color: #999;
+  position: absolute;
+  z-index: 5;
+}
+.time{
+
+}
+
+@media (min-width: 768px) {
+
+  .item{
+    padding: 4px 10px;
+  }
+}

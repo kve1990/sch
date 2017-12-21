@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="781.59802px" height="779.19617px" viewBox="857.40198 1424.90186 781.59802 779.19617"
+	 enable-background="new 857.40198 1424.90186 781.59802 779.19617" xml:space="preserve">
+<g id="Слой_x0020_1">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="981" y="1548.49988" width="532" height="532">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="981" y="1548.49988" width="532" height="532" id="id0">
+		
+			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="1234.80786" y1="1928.625" x2="1241.39783" y2="1397.23486" gradientTransform="matrix(1 0 0 -1 8.39999 3484.66016)">
+			<stop  offset="0" style="stop-color:#FFFFFF"/>
+			<stop  offset="0.14902" style="stop-color:#FFFFFF;stop-opacity:0.50196"/>
+			<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+		</linearGradient>
+		<rect x="980" y="1547.49988" fill="url(#SVGID_1_)" filter="url(#Adobe_OpacityMaskFilter)" width="533" height="548"/>
+	</mask>
+	
+		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="1238.59998" y1="1400.37012" x2="1238.59998" y2="1925.50012" gradientTransform="matrix(1 0 0 -1 8.39999 3484.66016)">
+		<stop  offset="0" style="stop-color:#FFFFFF"/>
+		<stop  offset="0.8" style="stop-color:#FFFFFF"/>
+		<stop  offset="1" style="stop-color:#FEFEFE"/>
+	</linearGradient>
+	<path mask="url(#id0)" fill="url(#SVGID_2_)" d="M1247,1548.49988c-147,0-266,119-266,266S1100,2080.5,1247,2080.5
+		s266-119.00012,266-266.00012S1394,1548.49988,1247,1548.49988z M1247,2066.5c-139,0-252-113.00012-252-252.00012s113-252,252-252
+		s252,113,252,252S1386,2066.5,1247,2066.5z"/>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter_1_" filterUnits="userSpaceOnUse" x="1105" y="1672.49988" width="284" height="284">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="1105" y="1672.49988" width="284" height="284" id="id2">
+		
+			<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="1236.80225" y1="1799.49597" x2="1239.40222" y2="1541.38599" gradientTransform="matrix(1 0 0 -1 8.39999 3484.66016)">
+			<stop  offset="0" style="stop-color:#FFFFFF"/>
+			<stop  offset="0.07059" style="stop-color:#FFFFFF;stop-opacity:0.50196"/>
+			<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+		</linearGradient>
+		<rect x="1104" y="1671.49988" fill="url(#SVGID_3_)" filter="url(#Adobe_OpacityMaskFilter_1_)" width="285" height="285"/>
+	</mask>
+	<path mask="url(#id2)" fill="rgba(255,255,255,0.5)" d="M1247,1672.49988c-78,0-142,64-142,142s64,142,142,142s142-64,142-142
+		S1325,1672.49988,1247,1672.49988z M1247,1940.49988c-70,0-126-56-126-126s56-126,126-126s126,56,126,126
+		S1316,1940.49988,1247,1940.49988z"/>
+	<path fill="#FFFFFF" d="M1321,1471.49988c-7-7-17-11-28-10c-5,0-9,1-13,3l-18-30c-1-3-5-3-8-2s-3,5-2,8l7,11l-44,2l0,0
+		c-1,0-2,1-3,2l-15,18c-6-4-14-6-23-6c-11,0-20,5-27,13c-7,7-11,17-10,28c0,11,5,20,13,27c7,7,17,11,28,10c11,0,20-5,27-13
+		c6-7,10-15,10-25h11l0,0c1,0,2-1,3-2l37-42l4,7c-2,1-3,3-5,4c-7,7-11,17-10,28c0,11,5,20,13,27c7,7,17,11,28,10c11,0,20-5,27-13
+		c7-7,11-17,10-28C1333,1487.49988,1328,1478.49988,1321,1471.49988z M1205,1497.49988l-18,1l12-14c3,3,6,8,7,13H1205z
+		 M1198,1524.49988c-5,6-12,9-21,10c-8,0-16-3-21-8c-6-5-9-12-10-21c0-8,3-16,8-21c5-6,12-9,21-10c6,0,11,1,16,4l-18,21
+		c-1,1-1,2-1,3c0,2,2,4,5,4l29-1c0,7-3,14-8,18V1524.49988z M1224,1496.49988h-10c-2-7-5-14-10-19l14-16l39-2L1224,1496.49988z
+		 M1325,1498.49988c0,8-3,16-8,21c-5,6-12,9-21,10c-8,0-16-3-21-8c-6-5-9-12-10-21c0-8,3-16,8-21c1-1,2-2,2-2l15,25c1,3,5,3,8,2
+		s3-5,2-8l-15-25c3-1,6-2,9-2c8,0,16,3,21,8C1320,1483.49988,1324,1490.49988,1325,1498.49988z"/>
+</g>
+</svg>

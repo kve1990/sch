@@ -1,0 +1,36 @@
+// ==========================================================================
+// VARIABLES THEME
+// ==========================================================================
+
+@import "../assets/fonts/fonts";
+
+// COLORS
+// ------------------------------------
+$blue:               #00aae7;
+$lighterBlue:        rgba(0, 170, 231, 0.05);
+$green:              #22ba6e;
+$purple:             #5f498f;
+$darkPurple:         #322161;
+$lightPurple:        #8e75c0;
+$red:                #d62445;
+$darkRed:            #9d001e;
+$lightRed:           #ff5f70;
+$lighterGray:        #ededed;
+
+// TEXT COLORS
+// ------------------------------------
+$lightGray:          #d4d4d4;
+$gray:               #aaaab6;
+$darkGray:           #61616d;
+
+// FONTS
+// ------------------------------------
+$FBase:               Arial, sans-serif;
+$FOpenSans:          'OpenSans';
+$FComfortaa:         'Comfortaa Regular';
+$FComfortaaBold:     'Comfortaa Bold';
+$FComfortaaLight:    'Comfortaa Light';
+
+// USED FONTS
+// ------------------------------------
+$FDefault:           $FComfortaa, $FOpenSans, $FBase;

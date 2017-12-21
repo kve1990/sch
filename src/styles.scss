@@ -1,0 +1,60 @@
+@import "./assets/font-awesome-4.7.0/scss/font-awesome.scss";
+@import "./app/variables";
+*{
+	font-family: $FComfortaa;
+	box-sizing: border-box;
+}
+html, body{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+.container{
+	max-width: 1100px;
+	padding: 0 15px;
+	margin: 0 auto;
+
+  &.modal-open{
+    max-height: 100vh;
+    overflow: hidden;
+  }
+}
+img{
+  max-width: 100%;
+}
+.loader-wrap{
+	width: 100%;
+	height: 100%;
+}
+.loader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: relative;
+  animation: loader-circles 1s linear infinite;
+  top: 50%;
+  margin: -8px auto 0 auto;
+}
+
+//@keyframes loader-circles {
+//  0% {
+//    box-shadow: 0 -27px 0 0 rgba(95, 73, 143, 0.05), 19px -19px 0 0 rgba(95, 73, 143, 0.1), 27px 0 0 0 rgba(95, 73, 143, 0.2), 19px 19px 0 0 rgba(95, 73, 143, 0.3), 0 27px 0 0 rgba(95, 73, 143, 0.4), -19px 19px 0 0 rgba(95, 73, 143, 0.6), -27px 0 0 0 rgba(95, 73, 143, 0.8), -19px -19px 0 0 #5f498f; }
+//  12.5% {
+//    box-shadow: 0 -27px 0 0 #5f498f, 19px -19px 0 0 rgba(95, 73, 143, 0.05), 27px 0 0 0 rgba(95, 73, 143, 0.1), 19px 19px 0 0 rgba(95, 73, 143, 0.2), 0 27px 0 0 rgba(95, 73, 143, 0.3), -19px 19px 0 0 rgba(95, 73, 143, 0.4), -27px 0 0 0 rgba(95, 73, 143, 0.6), -19px -19px 0 0 rgba(95, 73, 143, 0.8); }
+//  25% {
+//    box-shadow: 0 -27px 0 0 rgba(95, 73, 143, 0.8), 19px -19px 0 0 #5f498f, 27px 0 0 0 rgba(95, 73, 143, 0.05), 19px 19px 0 0 rgba(95, 73, 143, 0.1), 0 27px 0 0 rgba(95, 73, 143, 0.2), -19px 19px 0 0 rgba(95, 73, 143, 0.3), -27px 0 0 0 rgba(95, 73, 143, 0.4), -19px -19px 0 0 rgba(95, 73, 143, 0.6); }
+//  37.5% {
+//    box-shadow: 0 -27px 0 0 rgba(95, 73, 143, 0.6), 19px -19px 0 0 rgba(95, 73, 143, 0.8), 27px 0 0 0 #5f498f, 19px 19px 0 0 rgba(95, 73, 143, 0.05), 0 27px 0 0 rgba(95, 73, 143, 0.1), -19px 19px 0 0 rgba(95, 73, 143, 0.2), -27px 0 0 0 rgba(95, 73, 143, 0.3), -19px -19px 0 0 rgba(95, 73, 143, 0.4); }
+//  50% {
+//    box-shadow: 0 -27px 0 0 rgba(95, 73, 143, 0.4), 19px -19px 0 0 rgba(95, 73, 143, 0.6), 27px 0 0 0 rgba(95, 73, 143, 0.8), 19px 19px 0 0 #5f498f, 0 27px 0 0 rgba(95, 73, 143, 0.05), -19px 19px 0 0 rgba(95, 73, 143, 0.1), -27px 0 0 0 rgba(95, 73, 143, 0.2), -19px -19px 0 0 rgba(95, 73, 143, 0.3); }
+//  62.5% {
+//    box-shadow: 0 -27px 0 0 rgba(95, 73, 143, 0.3), 19px -19px 0 0 rgba(95, 73, 143, 0.4), 27px 0 0 0 rgba(95, 73, 143, 0.6), 19px 19px 0 0 rgba(95, 73, 143, 0.8), 0 27px 0 0 #5f498f, -19px 19px 0 0 rgba(95, 73, 143, 0.05), -27px 0 0 0 rgba(95, 73, 143, 0.1), -19px -19px 0 0 rgba(95, 73, 143, 0.2); }
+//  75% {
+//    box-shadow: 0 -27px 0 0 rgba(95, 73, 143, 0.2), 19px -19px 0 0 rgba(95, 73, 143, 0.3), 27px 0 0 0 rgba(95, 73, 143, 0.4), 19px 19px 0 0 rgba(95, 73, 143, 0.6), 0 27px 0 0 rgba(95, 73, 143, 0.8), -19px 19px 0 0 #5f498f, -27px 0 0 0 rgba(95, 73, 143, 0.05), -19px -19px 0 0 rgba(95, 73, 143, 0.1); }
+//  87.5% {
+//    box-shadow: 0 -27px 0 0 rgba(95, 73, 143, 0.1), 19px -19px 0 0 rgba(95, 73, 143, 0.2), 27px 0 0 0 rgba(95, 73, 143, 0.3), 19px 19px 0 0 rgba(95, 73, 143, 0.4), 0 27px 0 0 rgba(95, 73, 143, 0.6), -19px 19px 0 0 rgba(95, 73, 143, 0.8), -27px 0 0 0 #5f498f, -19px -19px 0 0 rgba(95, 73, 143, 0.05); }
+//  100% {
+//    box-shadow: 0 -27px 0 0 rgba(95, 73, 143, 0.05), 19px -19px 0 0 rgba(95, 73, 143, 0.1), 27px 0 0 0 rgba(95, 73, 143, 0.2), 19px 19px 0 0 rgba(95, 73, 143, 0.3), 0 27px 0 0 rgba(95, 73, 143, 0.4), -19px 19px 0 0 rgba(95, 73, 143, 0.6), -27px 0 0 0 rgba(95, 73, 143, 0.8), -19px -19px 0 0 #5f498f; }
+//}
+
